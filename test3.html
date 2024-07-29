@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/echarts.js"></script>
+	</head>
+	<body>
+		<!--
+		步骤1.引入echarts库(就是js文件)
+		步骤2.准备一个图表的盒子
+		步骤3.初始化echarts实例对象
+		步骤4.准备配置项（关键）****
+		步骤5.将配置项设置给echarts对象
+		-->
+		<div id="show" style="width:600px;height:400px;"></div>
+		<script type="text/javascript">
+		//步骤3.初始化echarts实例对象myEcharts
+		let myEcharts=echarts.init(document.getElementById('show'));<!--进行初始化-->
+		//步骤4.准备配置项（关键）****
+		let option={
+			title:{text:'零食销量'},
+			series:[
+				{
+				type:'pie',//显示什么图是根据这个显示的}//一个系列以一个对象体现
+				data:[
+					{name:'三只松鼠',
+					value:4558},
+					{name:'良品铺子',
+					value:558},
+					{name:'卫龙辣条',
+					value:8888},
+					{name:'达利园',
+					value:5658},
+					{name:'周黑鸭',
+					value:7948},
+					{name:'乐事',
+					value:1998}
+				],
+				label:{
+					show:true,
+					formatter:function(arg){
+						return arg.name+'品牌零食销量'+arg.value+'\n'+arg.percent+'%';
+					}
+				},
+				//barWidth:35,柱状图的宽度
+				roseType:'radius'
+				},
+				
+			],//分数（才是真正的配置）配置具体的值  数组的形式
+			//加入图例
+			
+		};
+		//步骤5.将配置项设置给echarts对象
+		myEcharts.setOption(option);
+	</script>
+	</body>
+</html>

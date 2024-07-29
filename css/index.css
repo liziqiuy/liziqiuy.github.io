@@ -1,0 +1,239 @@
+*{margin: 0px;
+padding: 0px;}
+
+body{background:url(../img/bg.jpg);
+background-size: cover;}
+
+/*header样式*/
+header{
+	width: 100%;
+	height: 80px;
+	background: url(../img/head_bg.png);
+	position: relative;//设置父容器的相对定位 
+}
+header h1{
+	text-align: center;
+	color: #fff;
+	line-height: 80px;/*垂直方向居中*/
+}
+header .showTime{
+	color: #CCC;
+	font-size: 20px;
+	position: absolute;
+	top:20px;
+	right: 30px;
+}
+
+/*盒子的样式*/
+
+.mainBox{
+	width: 100%;
+	height: 860px;
+	display: flex;
+}
+.mainBox .column:nth-child(1){
+	flex: 4;/*占比*/
+}
+.mainBox .column:nth-child(2){
+	flex: 8.5;
+}
+.mainBox .column:nth-child(3){
+	flex: 4;
+}
+.mainBox .column{
+	height: 860px;
+	/* border: solid 1px #fff; */
+	display: flex;
+	flex-direction: column;/*垂直方向*/
+}
+.mainBox .column .panel{
+	flex: 1;
+	border:1px solid rgba(25,186,139,0.17);
+	margin-top: 10px;
+	position: relative;
+}
+.mainBox .column .panel::before{
+	content: '';
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top:0;
+	left: 0;
+	border-top: 2px solid #02a6b5;
+	border-left: 2px solid #02a6b5;
+}
+.mainBox .column .panel::after{
+	content: '';
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top:0;
+	right: 0;
+	border-top: 2px solid #02a6b5;
+	border-right: 2px solid #02a6b5;
+}
+.mainBox .column .panel .panel-footer{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+.mainBox .column .panel .panel-footer::before{
+	content: '';
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	bottom:0;
+	left: 0;
+	border-bottom: 2px solid #02a6b5;
+	border-left: 2px solid #02a6b5;
+}
+.mainBox .column .panel .panel-footer::after{
+	content: '';
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	bottom:0;
+	right: 0;
+	border-bottom: 2px solid #02a6b5;
+	border-right: 2px solid #02a6b5;
+}
+.mainBox .column .panel .chart{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+/*左侧第一个柱状图*/
+.mainBox .column .panel h2{
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	margin-top: 10px;
+}
+.mainBox .column .panel a{
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	margin-left: 10px;
+}
+/*具体的盒子样式Echarts*/
+.mainBox .column .panel .chart{
+	width: 100%;
+	height: 240px;
+	
+}
+
+/*中间列的数字盒子的样式*/
+.showNum{
+	background-color: rgba(101,132,226,0.1);
+	margin: 10px 10px;
+}
+.showNum .num{
+	border: 1px solid rgba(25,186,139,0.17);
+	position: relative;
+	height: 70px;
+}
+.showNum .num .numStyle::before{
+	content: '';
+	width: 30px;
+	height: 10px;
+	position: absolute;
+	top:0;
+	left: 0;
+	border-top: 2px solid #02a6b5;
+	border-left: 2px solid #02a6b5;
+}
+.showNum .num .numStyle::after{
+	content: '';
+	width: 30px;
+	height: 10px;
+	position: absolute;
+	bottom:0;
+	right: 0;
+	border-bottom: 2px solid #02a6b5;
+	border-right: 2px solid #02a6b5;
+}
+
+/*引入字体*/
+@font-face {
+	font-family: myFont;
+	src: url(../font/DS-DIGIT.TTF);
+}
+.showNum .num .numStyle{
+	width: 100%;
+	height: 70px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;/*垂直方向*/
+	color: #ffeb7b;
+	list-style: none;
+	font-size: 42px;
+	font-weight: 700;
+	font-family: myFont;
+}
+.showNum .numItem .itemStyle{
+	width: 100%;
+	height: 40px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;/*垂直方向*/
+	color: #ccc;
+	list-style: none;
+	font-size: 16px;
+}
+
+/*中间地图的样式*/
+.mainBox .column .showMap {
+	width: 100%;
+	height: 700px;
+	position: relative;
+}
+.mainBox .column .showMap .mapchart{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;/*z轴越大越在上面*/
+}
+.mainBox .column .showMap .map1,.mainBox .column .showMap .map2, .mainBox .column .showMap .map3{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+} 
+.mainBox .column .showMap .map1{
+	background: url(../img/map.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	
+}
+.mainBox .column .showMap .map2{
+	background: url(../img/lbx.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	animation: play1 10s linear infinite;
+}
+.mainBox .column .showMap .map3{
+	background: url(../img/jt.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	animation: play2 12s linear infinite;
+}
+@keyframes play1{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+@keyframes play2{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(-360deg);
+	}
+}

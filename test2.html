@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/echarts.js"></script>
+	</head>
+	<body>
+		<!--
+		步骤1.引入echarts库(就是js文件)
+		步骤2.准备一个图表的盒子
+		步骤3.初始化echarts实例对象
+		步骤4.准备配置项（关键）****
+		步骤5.将配置项设置给echarts对象
+		-->
+		<div id="show" style="width:600px;height:400px;"></div>
+		<script type="text/javascript">
+		//步骤3.初始化echarts实例对象myEcharts
+		let myEcharts=echarts.init(document.getElementById('show'));<!--进行初始化-->
+		//步骤4.准备配置项（关键）****
+		let option={
+			title:{text:'期末考试成绩',
+			link:'http://www.163.com'},
+			xAxis:{//x轴
+			type:'category',//对应的项
+			data:['张三','李四','王五','赵六',]//对应的数据
+			},
+			yAxis:{//y轴
+			type:'value'//对应的值
+			},
+			series:[
+				{name:'语文',
+				type:'line',//显示什么图是根据这个显示的}//一个系列以一个对象体现
+				data:[89,76,95,88],
+				label:{show:true},
+				//barWidth:35,柱状图的宽度
+				markPoint:{
+					data:[
+						{
+							type:'max',
+							name:'最大值'
+						},//对数据可以设置最大值最小值
+						{
+							type:'min',
+							name:'最小值'
+						}//对数据可以设置最大值最小值
+					]
+				},//标记点
+				smooth:true//平滑的（带弧度）
+				},
+				{name:'数学',
+				type:'line',//显示什么图是根据这个显示的}//一个系列以一个对象体现
+				data:[60,66,75,98],
+				label:{show:true},
+				//barWidth:35
+				smooth:true,//平滑的（带弧度）
+				lineStyle:{
+					color:'red',
+					type:'dashed'
+				},
+				areaStyle:{
+					color:'orange'
+				}
+				}
+				
+			],//分数（才是真正的配置）配置具体的值  数组的形式
+			//加入图例
+			legend:{
+				data:['语文','数学']
+			}
+		};
+		//步骤5.将配置项设置给echarts对象
+		myEcharts.setOption(option);
+	</script>
+	</body>
+</html>
